@@ -165,10 +165,12 @@ const (
 	WyomingName StateName = "Wyoming"
 )
 
+// Is will compare the state
 func (s State) Is(state State) bool {
 	return s == state
 }
 
+// nolint:gocyclo // allow higher complexity
 func (s State) Name() StateName {
 	switch s {
 	case Alaska:
@@ -300,6 +302,7 @@ func FindState(postal string) (State, error) {
 	return state, nil
 }
 
+// nolint:gocyclo // allow higher complexity
 func getStateFromCode(code int64) State {
 	switch {
 	case rng(code, 99500, 99999):
@@ -396,9 +399,9 @@ func getStateFromCode(code int64) State {
 		return Virginia
 	case rng(code, 5000, 5999):
 		return Vermont
-	case rng(code, 20000, 20599):
-		return Washington
 	case rng(code, 98000, 99499):
+		return Washington
+	case rng(code, 53000, 54999):
 		return Wisconsin
 	case rng(code, 24700, 26999):
 		return WestVirginia
