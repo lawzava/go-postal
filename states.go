@@ -6,7 +6,10 @@ import (
 )
 
 type (
-	State     string
+	// State defines US State short code.
+	State string
+
+	// StateName defines full name of the US State.
 	StateName string
 )
 
@@ -165,11 +168,22 @@ const (
 	WyomingName StateName = "Wyoming"
 )
 
+// String returns string version of State.
+func (s State) String() string {
+	return string(s)
+}
+
+// String returns string version of StateName.
+func (s StateName) String() string {
+	return string(s)
+}
+
 // Is will compare the state.
 func (s State) Is(state State) bool {
 	return s == state
 }
 
+// Name returns full state name from state code.
 // nolint:gocyclo // allow higher complexity
 func (s State) Name() StateName {
 	switch s {
@@ -280,6 +294,9 @@ func (s State) Name() StateName {
 	return ""
 }
 
+// FindState returns the state by postal code.
+// Returns ErrStateNotFound if state was not found.
+// Returns ErrInvalidCode if the provided code was not valid.
 func FindState(postal string) (State, error) {
 	if !IsValid(postal) {
 		return "", fmt.Errorf("invalid code '%s': %w", postal, ErrInvalidCode)
