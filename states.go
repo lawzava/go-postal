@@ -165,7 +165,7 @@ const (
 	WyomingName StateName = "Wyoming"
 )
 
-// Is will compare the state
+// Is will compare the state.
 func (s State) Is(state State) bool {
 	return s == state
 }
