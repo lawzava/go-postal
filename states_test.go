@@ -1,9 +1,10 @@
 package postal_test
 
 import (
+	"testing"
+
 	"github.com/lawzava/go-postal"
 	"github.com/stretchr/testify/assert"
-	"testing"
 )
 
 func TestFindState(t *testing.T) {
