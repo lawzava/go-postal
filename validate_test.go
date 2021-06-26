@@ -1,9 +1,9 @@
-package postal
+package postal_test
 
 import (
-	"testing"
-
+	"github.com/lawzava/go-postal"
 	"github.com/stretchr/testify/assert"
+	"testing"
 )
 
 func TestIsValid(t *testing.T) {
@@ -24,7 +24,7 @@ func TestIsValid(t *testing.T) {
 	}
 
 	for _, testCase := range testCases {
-		res := IsValid(testCase.input)
+		res := postal.IsValid(testCase.input)
 
 		assert.Equal(t, testCase.expectedOutput, res, testCase.input)
 	}

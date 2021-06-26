@@ -1,9 +1,9 @@
-package postal
+package postal_test
 
 import (
-	"testing"
-
+	"github.com/lawzava/go-postal"
 	"github.com/stretchr/testify/assert"
+	"testing"
 )
 
 func TestFindState(t *testing.T) {
@@ -11,16 +11,16 @@ func TestFindState(t *testing.T) {
 
 	testCases := []struct {
 		input          string
-		expectedOutput State
+		expectedOutput postal.State
 	}{
-		{"59000", Montana},
-		{"76512", Texas},
+		{"59000", postal.Montana},
+		{"76512", postal.Texas},
 		{"", ""},
 		{"00033", ""},
 	}
 
 	for _, testCase := range testCases {
-		res, _ := FindState(testCase.input)
+		res, _ := postal.FindState(testCase.input)
 
 		assert.Equal(t, testCase.expectedOutput, res, testCase.input)
 	}

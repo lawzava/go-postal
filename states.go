@@ -184,7 +184,7 @@ func (s State) Is(state State) bool {
 }
 
 // Name returns full state name from state code.
-// nolint:gocyclo // allow higher complexity
+// nolint:gocyclo,cyclop // allow higher complexity
 func (s State) Name() StateName {
 	switch s {
 	case Alaska:
@@ -302,7 +302,7 @@ func FindState(postal string) (State, error) {
 		return "", fmt.Errorf("invalid code '%s': %w", postal, ErrInvalidCode)
 	}
 
-	code, err := strconv.ParseInt(postal, 10, 64)
+	code, err := strconv.ParseInt(postal, 10, 64) // nolint:gomnd // allow fixed integer size
 	if err != nil {
 		return "", fmt.Errorf("code is not a valid number: %w", ErrInvalidCode)
 	}
@@ -319,7 +319,7 @@ func FindState(postal string) (State, error) {
 	return state, nil
 }
 
-// nolint:gocyclo // allow higher complexity
+// nolint:gocyclo,gomnd,cyclop // allow higher complexity & zip codes as integers
 func getStateFromCode(code int64) State {
 	switch {
 	case rng(code, 99500, 99999):
