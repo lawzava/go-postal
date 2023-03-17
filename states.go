@@ -337,7 +337,7 @@ func getStateFromCode(code int64) State {
 	case rng(code, 6000, 6999):
 		return Connecticut
 	case rng(code, 20000, 20599):
-		return Washington
+		return WashingtonDC
 	case rng(code, 19700, 19999):
 		return Delaware
 	case rng(code, 32000, 34999):
