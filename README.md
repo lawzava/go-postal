@@ -6,7 +6,7 @@
 
 # go-postal
 
-Minimalistic library for keeping up to date with Postal (Zip) Code checks and US state finder/parser.
+Minimalistic library that checks the format of US ZIP codes (5-digit or ZIP+4) and finds the US state for a ZIP code from its prefix range.
 
 ## Installation
 
