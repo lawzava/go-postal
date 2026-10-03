@@ -430,6 +430,6 @@ func getStateFromCode(code int64) State {
 	return ""
 }
 
-func rng(target, min, max int64) bool {
-	return target >= min && target <= max
+func rng(target, low, high int64) bool {
+	return target >= low && target <= high
 }
